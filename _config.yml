@@ -1,39 +1,47 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that.
-# This file is *NOT* reloaded automatically when you use 'bundle exec jekyll serve'.
-# If you change this file, please restart the server process.
-
-# Site settings
-# are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-theme: jekyll-agency
-
-url    : "http://bbiku.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-
-title      : Your Awesome Website
-email      : libra1013u@gmail.com #this is also the email contact forms will go to
-description: "Site description"
-author     : C.H.Kim
-# logo:     #optional, defaults to site title
-  # path: assets\img\clients\creative-market.jpg
-  # height: 60 #height in px, defaults to 52px
-
-locale: "ko-KR" # See available languages in _data/sitetext.yml
-
-analytics:
-  google: #Google Analytics tracking code here
-
-collections:
-  portfolio:
+highlighter: rouge
 
 markdown: kramdown
 
-# Uncomment following line to use Formspree form ID based URL instead of email based URL
-# Details: https://help.formspree.io/hc/en-us/articles/360017735154-How-to-prevent-spam
-# formspree_form_path: "f/a_form_id"
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: 'highlight'
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+
+paginate: 7
+paginate_path: "page:num"
+layout: post
+permalink: /:categories/:title
+excerpt_separator: "[-----]"
+
+url: # Required: replace this with your domain
+name: textalic # Required: will be displayed on every page's header
+title: site title # Required: site's default title
+shout: # Required: **TWO** lines, will be displayed on page's header.
+  - one liner one...
+  - one liner two...
+description: "Some short description on your site" # Required
+
+disqus:
+  comments: true # Global toggle on/off disqus comment
+  shortname: unifreak # Required if you use disqus. Repalce with your disqus shortname here
+
+google_analytics:
+  id: "" # Required if you use google analytics. Replace with your tracking id here
+
+collections: # Define post series here
+  demo_series:
+    output: true
+  demo_series_2:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "post"
